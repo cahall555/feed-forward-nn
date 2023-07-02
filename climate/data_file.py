@@ -21,7 +21,7 @@ df=pd.read_csv('../data/climate_data.csv', encoding='utf-8')
 df = df[df['RR'] >= 0]
 
 #histagram of rainfall
-df['RR'].hist(bins=6, ec='black')
+df['ddd_x'].hist(bins=14, ec='black')
 plt.xlabel("Rainfall (mm)")
 plt.title("Rainfall")
 
@@ -30,6 +30,7 @@ plt.show(block=False)
 plt.pause(1)
 input()
 plt.close()
-
-print(df.describe())
+dt = pd.to_datetime(format='%d-%m-%Y', df['date'])
+df['year'] = df['date'].dt.year
+print(df['year'])
 
